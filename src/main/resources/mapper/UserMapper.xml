@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zze0.demo.shardingjdbc.mapper.UserMapper">
+	<resultMap id="baseRsMap" type="com.zze0.demo.shardingjdbc.entity.User">
+		<id column="fd_id" property="fdId"/>
+		<result column="fd_name" property="fdName"/>
+		<result column="fd_pwd" property="fdPwd"/>
+	</resultMap>
+
+	<select id="getById" resultMap="baseRsMap">
+        SELECT * FROM _user WHERE fd_id = #{id}
+    </select>
+
+	<select id="getAll" resultMap="baseRsMap">
+		SELECT * FROM _user limit 0,1
+	</select>
+
+	<insert id="insert">
+		insert _user(fd_id, fd_name, fd_pwd) values(#{fdId}, #{fdName}, #{fdPwd})
+	</insert>
+
+</mapper>
