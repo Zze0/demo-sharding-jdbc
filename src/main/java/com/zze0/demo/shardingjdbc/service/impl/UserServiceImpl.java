@@ -48,15 +48,9 @@ public class UserServiceImpl implements UserService {
         user.setFdPwd("pwd_"+uuid);
         insert(user);
 
-        //Open the debug breakpoint at line 54
-        //You will find that the insert is committed directly
-        //Because the autoCommit property of the ShardingConnection class defaults to true, then returns false in the isHoldTransaction function of the ShardingConnection class
         System.out.println(JSON.toJSONString(user));
 
-        //Transactions cannot be rolled back after a null pointer exception is thrown
-        //This is not in accordance with the official document: https://shardingsphere.apache.org/document/current/en/features/transaction/function/local-transaction/
         throw new NullPointerException();
-
     }
 
 }

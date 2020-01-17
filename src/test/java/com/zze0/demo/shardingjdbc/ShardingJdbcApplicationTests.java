@@ -19,6 +19,7 @@ public class ShardingJdbcApplicationTests {
 	public void testTransaction() {
 		try (HintManager hintManager = HintManager.getInstance()){
 			hintManager.addDatabaseShardingValue("_user", "0");
+			hintManager.addDatabaseShardingValue("_user", "1");
 
 			userService.testTransaction();
 		}

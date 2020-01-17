@@ -32,3 +32,6 @@ build/
 
 ### class ###
 *.class
+
+### log ###
+*.log
